@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web-backend:
+    container_name: web-backend
+    build: 
+      context: ./web-backend
+    ports: 
+      - "3001:3001"
+  web-frontend:
+    container_name: web-frontend
+    build:
+      context: ./web-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - web-backend
+

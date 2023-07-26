@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
@@ -74,7 +73,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>Grocery List</p>
         <div>
           <input
@@ -83,7 +81,7 @@ function App() {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Enter item name"
           />
-          <button onClick={handleCreate}>Create</button>
+          <button className="btn create" onClick={handleCreate}>Create</button>
         </div>
         {data ? (
         <ul>
@@ -96,13 +94,13 @@ function App() {
                     value={editedItem.name}
                     onChange={(e) => setEditedItem({ ...editedItem, name: e.target.value })}
                   />
-                  <button onClick={handleUpdate}>Save</button>
+                  <button className="btn save" onClick={handleUpdate}>Save</button>
                 </>
               ) : (
                 <>
                   <span>{item.name}</span>
-                  <button className="btn" onClick={() => handleEdit(item.id, item.name)}>Edit</button>
-                  <button className="btn" onClick={() => handleDelete(item.id)}>Delete</button>
+                  <button className="btn edit" onClick={() => handleEdit(item.id, item.name)}>Edit</button>
+                  <button className="btn delete" onClick={() => handleDelete(item.id)}>Delete</button>
                 </>
               )}
             </li>
